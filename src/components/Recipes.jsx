@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
 import { Link, useLocation } from "react-router-dom";
+import { todocontext } from "../context/TodoContext";
 
 const Recipes = () => {
+    const [recipes,setrecipes] = useContext(todocontext)
     const { pathname } = useLocation();
     return (
         <div className=" mt-10">
@@ -12,11 +14,13 @@ const Recipes = () => {
                 aperiam?
             </p>
             <div className="recipe-cards mt-[5%]  flex flex-wrap p-5">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+            {recipes.length > 0 ? (
+                    recipes.map((r) => <Card key={r.id} recipe={r} />)
+                ) : (
+                    <h1 className="w-full text-green-600 text-3xl font-extrabold text-center mt-10">
+                        No Recipe Found
+                    </h1>
+                )}
             </div>
             {pathname === "/recipes" && (
                 <Link
