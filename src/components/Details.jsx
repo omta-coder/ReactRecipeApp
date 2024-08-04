@@ -22,14 +22,14 @@ const Details = () => {
   return recipe ? (
     <div className="w-[80%] m-auto p-5">
         <Link to="/recipes" className="text-3xl ri-arrow-left-line"></Link>
-        <div className="details w-full flex h-[75vh] mt-3">
-            <div className="dets w-[50%] p-[3%] shadow">
+        <div className="details w-full flex h-fit mt-3">
+            <div className="dets w-[50%] p-5 shadow">
                 <img className="" src={recipe.image} alt="" />
                 <h1 className="text-xl mb-5 mt-[10%] text-center">
                     {recipe.title}
                 </h1>
                 <p className="text-zinc-400">{recipe.description}</p>
-                <div className="flex justify-between py-10 px-5">
+                <div className="flex justify-between py-6 px-5">
                     <Link
                         to={`/update-recipe/${params.id}`}
                         className="text-blue-400 border-blue-400 border py-2 px-5"

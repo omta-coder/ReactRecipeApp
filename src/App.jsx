@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Layout from './components/Layout'
 import Create from './components/Create'
 import Details from './components/Details'
+import Update from './components/Update'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout/>}/>
         <Route path='/create-recipe' element={<Create/>}/>
+        <Route path='/update-recipe/:id' element={<Update/>}/>
         <Route path='/recipes' element={<Recipes/>}/>
         <Route path='/recipes/:id' element={<Details/>}/>
         <Route path='/about' element={<About/>}/>
