@@ -1,7 +1,9 @@
 import React from "react";
+import Footer from "./Footer";
 
 const Contact = () => {
   return (
+    <>
     <div className="w-[70%] m-auto mt-10 p-10 bg-green-100 rounded-lg">
       <h1 className="text-7xl mt-5 font-extrabold text-green-600 mb-[5%]">
         DO YOU WANT TO REACH US ?
@@ -10,6 +12,8 @@ const Contact = () => {
       Get Strated &nbsp; &#8594;
       </button>
     </div>
+      <Footer/>
+    </>
   );
 };
 
