@@ -3,6 +3,6 @@ import recipeSlice from "./reducers/recipeSlice";
 
 export const store = configureStore({
     reducer: {
-        recipeReducer : recipeSlice
-    }
-})
+        recipeReducer: recipeSlice,
+    },
+});

@@ -5,6 +5,7 @@ export const asyncgetrecipies = () => async (dispatch, getState) => {
         let data = JSON.parse(localStorage.getItem("recipes")) || [];
         dispatch(addrecipe(data));
     } catch (error) {
-        toast.error(error);
+        console.log(error);
+        
     }
 };
