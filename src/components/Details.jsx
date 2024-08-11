@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import { todocontext } from '../context/TodoContext'
 import { Link,useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncgetrecipies } from '../store/action/recipeActions'
 
 const Details = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const params = useParams();
-    const [recipes,setrecipes] = useContext(todocontext)
+    const {recipes} = useSelector((state)=>state.recipeReducer)
     const recipe = recipes.find((r) => r.id == params.id);
 
     const DeleteHandler = (index) => {
@@ -13,9 +14,7 @@ const Details = () => {
             "recipes",
             JSON.stringify(recipes.filter((r) => r.id != params.id))
         );
-        const copyrecipes = [...recipes];
-        copyrecipes.splice(index, 1);
-        setrecipes(copyrecipes);
+        dispatch(asyncgetrecipies())
         navigate("/recipes");
     }
 

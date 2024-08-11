@@ -1,11 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { todocontext } from "../context/TodoContext";
+import { useDispatch, useSelector } from "react-redux";
+import { asyncgetrecipies } from "../store/action/recipeActions";
 
 const Update = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const params = useParams();
-  const [recipes, setrecipes] = useContext(todocontext);
+  const {recipes} = useSelector((state)=>state.recipeReducer);
   const recipe = recipes && recipes.find((r) => r.id == params.id);
 
   const [image, setimage] = useState(recipe.image);
@@ -29,7 +31,7 @@ const Update = () => {
     copyRecipe[recipeIndex] = updatedRecipe;
 
     localStorage.setItem("recipes", JSON.stringify(copyRecipe));
-    setrecipes(copyRecipe);
+    dispatch(asyncgetrecipies())
     navigate("/recipes");
   };
 

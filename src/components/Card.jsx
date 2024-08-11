@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { todocontext } from "../context/TodoContext";
 
 const Card = (props) => {
     const { id, title, image, description, instructions, ingredients } =
@@ -16,17 +14,17 @@ const Card = (props) => {
             <p>{description.slice(0, 100)}...</p>
             <div className="flex justify-between text-zinc-400 mt-5 ">
                 <p className="text-center ">
-                    <i class="ri-timer-line"></i>
+                    <i className="ri-timer-line"></i>
                     <br />
                     <span className="text-sm">20min</span>
                 </p>
                 <p className="text-center">
-                    <i class="ri-thumb-up-line"></i>
+                    <i className="ri-thumb-up-line"></i>
                     <br />
                     <span className="text-sm">Easy</span>
                 </p>
                 <p className="text-center">
-                    <i class="ri-share-line"></i>
+                    <i className="ri-share-line"></i>
                     <br />
                     <span className="text-sm">Share</span>
                 </p>
